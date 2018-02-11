@@ -49,6 +49,17 @@ class MarkrDocument(object):
         # TODO(shauno): make this better
         return self.document['mcq-test-results']['mcq-test-result']['test-id']
 
+    def _scores(self):
+        return [float(s['summary-marks']['@obtained']) for s in self._unique_students().values()]
+
+    def mean(self):
+        # mean - the mean of the awarded marks
+        return round(float(sum(self._scores())) / max(self.count(), 1), 2)
+
+    def count(self):
+        # count - the number of students who took the test
+        return len(self._unique_students())
+
 
 def _copy_content_to_s3(document):
     s3 = boto3.resource('s3')

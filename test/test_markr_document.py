@@ -47,3 +47,27 @@ class TestMarkrDocument(object):
     def test_validation(self):
         # TODO(shauno)
         pass
+
+    def test_mean_for_single_student(self):
+        contents = open('test/data/single_result.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.mean() == 13.0
+
+    def test_mean_for_multiple_students(self):
+        contents = open('test/data/three_results.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.mean() == 11.67
+
+    def test_count_for_single_student(self):
+        contents = open('test/data/single_result.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.count() == 1
+
+    def test_count_for_duplicate_students(self):
+        contents = open('test/data/duplicate_user_1.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.count() == 1

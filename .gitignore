@@ -22,7 +22,7 @@ __pycache__
 .pytest_cache/
 
 # Node
-node_modules/*
+serverless/node_modules/*
 
 # Serverless
 */.serverless

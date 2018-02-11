@@ -38,6 +38,12 @@ functions:
       - http:
           path: import
           method: post
+  results:
+    handler: handler.results_function
+    events:
+      - http:
+          path: results/{test_id}/aggregate
+          method: get
 
 resources:
   Resources:

@@ -1,4 +1,5 @@
 import collections
+import json
 import logging
 
 import numpy as np
@@ -97,4 +98,27 @@ def import_function(event, context):
         logging.error("Validation error")
 
     _copy_content_to_s3(document)
+    return response
+
+
+def _copy_content_from_s3(test_number):
+    s3 = boto3.resource('s3')
+    # TODO(shauno): stream instead of read
+    obj = s3.Object('markr-documents-shauno', test_number)
+    content = obj.get()['Body'].read().decode('utf-8')
+    return MarkrDocument(content)
+
+
+def results_function(event, context):
+    # TODO(shauno): tests
+    test_number = event["pathParameters"]["test_id"]
+    # TODO(shauno): handle missing document
+    d = _copy_content_from_s3(test_number)
+
+    body = {'mean': d.mean(), 'count': d.count()}
+    body.update(d.percentiles())
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
     return response

@@ -25,11 +25,11 @@ provider:
   endpointType: REGIONAL
 #
 # TODO(shauno): limit this role
-iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "s3:*"
-      Resource: "*"
+  iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "s3:*"
+        Resource: "*"
 
 functions:
   import:

@@ -1,7 +1,12 @@
 import collections
+import logging
 import sys
 
 import xmltodict
+
+
+class MarkrValidationError(object):
+    pass
 
 
 class MarkrDocument(object):
@@ -36,11 +41,18 @@ class MarkrDocument(object):
             students[student_number] = result
         return students
 
+    def validate(self):
+        # TODO(shauno): come back to this
+        pass
+
 
 def import_function(filename):
     with open(filename) as f:
-        MarkrDocument(f.read())
-
+        document = MarkrDocument(f.read())
+        try:
+            document.validate()
+        except MarkrValidationError:
+            logging.error("Validation error")
 
 if __name__ == "__main__":
     import_function(sys.args[0])

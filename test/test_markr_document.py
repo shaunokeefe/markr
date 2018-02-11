@@ -43,3 +43,7 @@ class TestMarkrDocument(object):
         assert len(students) == 1
         student = students[student_number]
         assert document.available_marks(student) == 21
+
+    def test_validation(self):
+        # TODO(shauno)
+        pass

@@ -16,6 +16,17 @@ class TestMarkrDocument(object):
         results_list = document.document['mcq-test-results']['mcq-test-result']
         assert len(results_list) == 100
 
+    def test_initialisation_converts_single_result_to_list(self):
+        contents = open('test/data/single_result.xml').read()
+        try:
+            document = handler.MarkrDocument(contents)
+        except:
+            pytest.fail("Failed to initialise MarkrDocument")
+
+        results_list = document.document['mcq-test-results']['mcq-test-result']
+        assert  isinstance(results_list, list)
+        assert  len(results_list) == 1
+
     def test_gets_available_marks(self):
         contents = open('test/data/single_result.xml').read()
         student = {'summary-marks': {'@available': 20}}

@@ -16,6 +16,10 @@ class MarkrDocument(object):
         self.raw = body
         self.document = xmltodict.parse(body)
 
+        result_list = self.document['mcq-test-results']['mcq-test-result']
+        if isinstance(result_list, collections.OrderedDict):
+            self.document['mcq-test-results']['mcq-test-result'] = [result_list]
+
     def available_marks(self, student):
         # TODO(shauno): more situation specific error handling - or ok because
         # this is just for testing?
@@ -25,9 +29,6 @@ class MarkrDocument(object):
     def _unique_students(self):
         students = {}
         result_list = self.document['mcq-test-results']['mcq-test-result']
-
-        if isinstance(result_list, collections.OrderedDict):
-            result_list = [result_list]
 
         def _available(student):
             return int(student['summary-marks']['@available'])
@@ -49,7 +50,7 @@ class MarkrDocument(object):
 
     def test_number(self):
         # TODO(shauno): make this better
-        return self.document['mcq-test-results']['mcq-test-result']['test-id']
+        return self.document['mcq-test-results']['mcq-test-result'][0]['test-id']
 
     def _scores(self):
         return [float(s['summary-marks']['@obtained']) for s in self._unique_students().values()]

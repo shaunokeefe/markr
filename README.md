@@ -90,11 +90,13 @@ Performance wasn't too bad, and we can always come back around and re-use the co
 - Offline processing of data
 - Limit IAM Role for each lambda to just specific permissions it needs
 - Document functions
+- Limit number of files being rolled into the Lambdas
 - Raise 404's on missing paths instead of API Gateway's mysterious error about missing API keys
 - Validations - this is a big one. Ran out of time before we could do things like validate the markr header, document contents etc.
 - Bucket name definition should be configured using an ENV variable and a central settings.py file. I feel very bad about this.
 - Testing of `results_function`. Skipped this as I ran out of time. Unforgiveable.
 - Authentication (although we don't have https so :/)
+- Expressing scores as percentages of totals
 
 ## Things that didn't go great
 - managing the xml inside the Markr document wasn't a great idea

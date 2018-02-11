@@ -1,0 +1,47 @@
+{
+  "resource": "/results/{test_id}/aggregate",
+  "path": "/results/9863/aggregate",
+  "httpMethod": "GET",
+  "headers": {
+    "Accept": "*/*",
+    "Host": "q55hls6vab.execute-api.ap-southeast-2.amazonaws.com",
+    "User-Agent": "curl/7.43.0",
+    "X-Amzn-Trace-Id": "Root=1-5a7ebae7-149beb391ace6d130ca7aaab",
+    "X-Forwarded-For": "14.201.163.90",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": {
+    "test_id": "9863"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "requestTime": "10/Feb/2018:09:27:03 +0000",
+    "path": "/dev/results/9863/aggregate",
+    "accountId": "346826561378",
+    "protocol": "HTTP/1.1",
+    "resourceId": "tohbte",
+    "stage": "dev",
+    "requestTimeEpoch": 1518254823250,
+    "requestId": "8db033e2-0e44-11e8-9e3e-0b87f7b207c3",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "14.201.163.90",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "curl/7.43.0",
+      "user": null
+    },
+    "resourcePath": "/results/{test_id}/aggregate",
+    "httpMethod": "GET",
+    "apiId": "q55hls6vab"
+  },
+  "body": null,
+  "isBase64Encoded": false
+}

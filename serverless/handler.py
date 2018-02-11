@@ -1,6 +1,7 @@
 import collections
 import logging
 
+import boto3
 import xmltodict
 
 
@@ -44,6 +45,17 @@ class MarkrDocument(object):
         # TODO(shauno): come back to this
         pass
 
+    def test_number(self):
+        # TODO(shauno): make this better
+        return self.document['mcq-test-results']['mcq-test-result']['test-id']
+
+
+def _copy_content_to_s3(document):
+    s3 = boto3.resource('s3')
+    # TODO(shauno): bucket in an env variable setting
+    obj = s3.Object('markr-documents', document.test_number())
+    obj.put(Body=document.raw.encode())
+
 
 def import_function(event, context):
     # validate request
@@ -61,4 +73,5 @@ def import_function(event, context):
     except MarkrValidationError:
         logging.error("Validation error")
 
+    _copy_content_to_s3(document)
     return response

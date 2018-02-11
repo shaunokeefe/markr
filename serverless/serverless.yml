@@ -16,7 +16,7 @@ service: markr
 custom:
   pythonRequirements:
     dockerizePip: non-linux
-  test_document_bucket: markr-documents
+  test_document_bucket: markr-documents-shauno
 provider:
   name: aws
   runtime: python3.6
@@ -44,7 +44,7 @@ resources:
     NewResource:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: markr-documents
+        BucketName: markr-documents-shauno
 
 plugins:
   - serverless-python-requirements

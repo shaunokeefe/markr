@@ -53,7 +53,7 @@ class MarkrDocument(object):
 def _copy_content_to_s3(document):
     s3 = boto3.resource('s3')
     # TODO(shauno): bucket in an env variable setting
-    obj = s3.Object('markr-documents', document.test_number())
+    obj = s3.Object('markr-documents-shauno', document.test_number())
     obj.put(Body=document.raw.encode())
 
 

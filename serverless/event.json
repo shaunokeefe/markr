@@ -1,0 +1,46 @@
+{
+  "resource": "/import",
+  "path": "/import",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "*/*",
+    "Content-Type": "text/xml+markr",
+    "Host": "q55hls6vab.execute-api.ap-southeast-2.amazonaws.com",
+    "User-Agent": "curl/7.43.0",
+    "X-Amzn-Trace-Id": "Root=1-5a7e7dd9-539cc49a41e3460a7caa2069",
+    "X-Forwarded-For": "49.184.141.125",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "requestTime": "10/Feb/2018:05:06:33 +0000",
+    "path": "/dev/import",
+    "accountId": "346826561378",
+    "protocol": "HTTP/1.1",
+    "resourceId": "oehe99",
+    "stage": "dev",
+    "requestTimeEpoch": 1518239193118,
+    "requestId": "29675476-0e20-11e8-8596-c5228a5a0590",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "49.184.141.125",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "curl/7.43.0",
+      "user": null
+    },
+    "resourcePath": "/import",
+    "httpMethod": "POST",
+    "apiId": "q55hls6vab"
+  },
+  "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><mcq-test-results>\t<mcq-test-result scanned-on=\"2017-12-04T12:12:10+11:00\">\t\t<first-name>KJ</first-name>\t\t<last-name>Alysander</last-name>\t\t<student-number>002299</student-number>\t\t<test-id>9863</test-id>\t\t<answer question=\"0\" marks-available=\"1\" marks-awarded=\"1\">D</answer>\t\t<answer question=\"1\" marks-available=\"1\" marks-awarded=\"1\">D</answer>\t\t<answer question=\"2\" marks-available=\"1\" marks-awarded=\"1\">D</answer>\t\t<answer question=\"3\" marks-available=\"1\" marks-awarded=\"0\">C</answer>\t\t<answer question=\"4\" marks-available=\"1\" marks-awarded=\"1\">B</answer>\t\t<answer question=\"5\" marks-available=\"1\" marks-awarded=\"0\">D</answer>\t\t<answer question=\"6\" marks-available=\"1\" marks-awarded=\"0\">A</answer>\t\t<answer question=\"7\" marks-available=\"1\" marks-awarded=\"1\">A</answer>\t\t<answer question=\"8\" marks-available=\"1\" marks-awarded=\"1\">B</answer>\t\t<answer question=\"9\" marks-available=\"1\" marks-awarded=\"1\">D</answer>\t\t<answer question=\"10\" marks-available=\"1\" marks-awarded=\"1\">A</answer>\t\t<answer question=\"11\" marks-available=\"1\" marks-awarded=\"1\">B</answer>\t\t<answer question=\"12\" marks-available=\"1\" marks-awarded=\"0\">A</answer>\t\t<answer question=\"13\" marks-available=\"1\" marks-awarded=\"0\">B</answer>\t\t<answer question=\"14\" marks-available=\"1\" marks-awarded=\"1\">B</answer>\t\t<answer question=\"15\" marks-available=\"1\" marks-awarded=\"1\">A</answer>\t\t<answer question=\"16\" marks-available=\"1\" marks-awarded=\"1\">C</answer>\t\t<answer question=\"17\" marks-available=\"1\" marks-awarded=\"0\">B</answer>\t\t<answer question=\"18\" marks-available=\"1\" marks-awarded=\"1\">A</answer>\t\t<answer question=\"19\" marks-available=\"1\" marks-awarded=\"0\">B</answer>\t\t<summary-marks available=\"20\" obtained=\"13\" />\t</mcq-test-result></mcq-test-results>",
+  "isBase64Encoded": false
+}

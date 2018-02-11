@@ -1,6 +1,7 @@
 import collections
 import logging
 
+import numpy as np
 import boto3
 import xmltodict
 
@@ -59,6 +60,17 @@ class MarkrDocument(object):
     def count(self):
         # count - the number of students who took the test
         return len(self._unique_students())
+
+    def percentiles(self):
+        # p25, p50, p75 - the 25th percentile, median,
+        # and 75th percentile scores
+        # TODO(shauno): scores function or something
+        scores = [float(s['summary-marks']['@obtained']) for s in self._unique_students().values()]
+        return {
+            'p25': np.percentile(scores, 25),
+            'p50': np.percentile(scores, 50),
+            'p75': np.percentile(scores, 75)
+        }
 
 
 def _copy_content_to_s3(document):

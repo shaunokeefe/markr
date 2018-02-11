@@ -71,3 +71,21 @@ class TestMarkrDocument(object):
         document = handler.MarkrDocument(contents)
 
         assert document.count() == 1
+
+    def test_p25(self):
+        contents = open('test/data/sample_results.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.percentiles()['p25'] == 8.0
+
+    def test_p50(self):
+        contents = open('test/data/sample_results.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.percentiles()['p50'] == 10.0
+
+    def test_p75(self):
+        contents = open('test/data/sample_results.xml').read()
+        document = handler.MarkrDocument(contents)
+
+        assert document.percentiles()['p75'] == 11.0

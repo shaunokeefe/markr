@@ -1,6 +1,5 @@
 import collections
 import logging
-import sys
 
 import xmltodict
 
@@ -46,13 +45,20 @@ class MarkrDocument(object):
         pass
 
 
-def import_function(filename):
-    with open(filename) as f:
-        document = MarkrDocument(f.read())
-        try:
-            document.validate()
-        except MarkrValidationError:
-            logging.error("Validation error")
+def import_function(event, context):
+    # validate request
+    # - check for text/xml+markr header and 4--
+    # - check document has necessary fields
 
-if __name__ == "__main__":
-    import_function(sys.args[0])
+    content = event['body']
+    document = MarkrDocument(content)
+    response = {
+        "statusCode": 200
+    }
+
+    try:
+        document.validate()
+    except MarkrValidationError:
+        logging.error("Validation error")
+
+    return response

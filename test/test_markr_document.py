@@ -1,13 +1,13 @@
 import pytest
 
-import document_import
+from serverless import handler
 
 
 class TestMarkrDocument(object):
     def test_initialisation(self):
         contents = open('test/data/sample_results.xml').read()
         try:
-            document = document_import.MarkrDocument(contents)
+            document = handler.MarkrDocument(contents)
         except:
             pytest.fail("Failed to initialise MarkrDocument")
 
@@ -20,7 +20,7 @@ class TestMarkrDocument(object):
         contents = open('test/data/single_result.xml').read()
         student = {'summary-marks': {'@available': 20}}
 
-        document = document_import.MarkrDocument(contents)
+        document = handler.MarkrDocument(contents)
 
         assert document.available_marks(student) == 20
 
@@ -28,7 +28,7 @@ class TestMarkrDocument(object):
         student_number = '002299'
         contents = open('test/data/duplicate_user_1.xml').read()
 
-        document = document_import.MarkrDocument(contents)
+        document = handler.MarkrDocument(contents)
         students = document._unique_students()
 
         assert len(students) == 1
@@ -37,7 +37,7 @@ class TestMarkrDocument(object):
 
         contents = open('test/data/duplicate_user_2.xml').read()
 
-        document = document_import.MarkrDocument(contents)
+        document = handler.MarkrDocument(contents)
         students = document._unique_students()
 
         assert len(students) == 1

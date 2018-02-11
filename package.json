@@ -1,0 +1,25 @@
+{
+  "name": "markr",
+  "version": "1.0.0",
+  "description": "## Quickstart Ensure you're using Python 3.6. If using virtualenv + virtualenvwrapper then ``` mkvirtualenv -p $(which python3.6) markr",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaunokeefe/markr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shaunokeefe/markr/issues"
+  },
+  "homepage": "https://github.com/shaunokeefe/markr#readme",
+  "dependencies": {
+    "serverless-python-requirements": "^3.3.0"
+  }
+}
